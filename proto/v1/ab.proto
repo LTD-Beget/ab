@@ -1,0 +1,58 @@
+syntax = 'proto3';
+
+package beget.ab.v1;
+
+import "google/api/annotations.proto";
+
+service ManageService {
+  // Get full scheme
+  rpc getScheme (GetSchemeRequest) returns (GetSchemeResponse) {
+    option (google.api.http) = {
+      get: "/v1/ab/scheme"
+    };
+  }
+
+  // Get State for customer
+  rpc getState (GetStateRequest) returns (GetStateResponse) {
+    option (google.api.http) = {
+      get: "/v1/ab/state"
+    };
+  }
+
+  // Save state
+  rpc saveState (SaveStateRequest) returns (SaveStateResponse) {
+    option (google.api.http) = {
+      post: "/v1/ab/state",
+      body: "*"
+    };
+  }
+}
+
+message GetSchemeRequest {
+}
+message GetSchemeResponse {
+  Scheme scheme = 1;
+}
+
+message GetStateRequest {
+  // auth header required
+}
+
+message GetStateResponse {
+  map<string, string> item = 1;
+}
+
+message SaveStateRequest {
+  map<string, string> item = 1;
+}
+message SaveStateResponse {
+  string uuid = 1;
+}
+
+message Scheme {
+  repeated Item items = 1;
+  message Item {
+    string name = 1;
+    repeated string value = 2;
+  }
+}
