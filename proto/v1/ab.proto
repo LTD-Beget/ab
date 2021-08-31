@@ -4,7 +4,7 @@ package beget.ab.v1;
 
 import "google/api/annotations.proto";
 
-service ManageService {
+service AbService {
   // Get full scheme
   rpc getScheme (GetSchemeRequest) returns (GetSchemeResponse) {
     option (google.api.http) = {
