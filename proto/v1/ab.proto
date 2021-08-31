@@ -1,6 +1,6 @@
 syntax = 'proto3';
 
-package beget.ab.v1;
+package beget.ab.v1.ab;
 
 import "google/api/annotations.proto";
 
