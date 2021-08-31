@@ -39,7 +39,8 @@ message GetStateRequest {
 }
 
 message GetStateResponse {
-  map<string, string> item = 1;
+  string uuid = 1;
+  map<string, string> item = 2;
 }
 
 message SaveStateRequest {
